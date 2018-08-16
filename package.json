@@ -1,0 +1,16 @@
+{
+    "name": "transformer",
+    "version": "1.0.0",
+    "main": "app.js",
+    "author": "hideo54",
+    "license": "Apache-2.0",
+    "private": true,
+    "dependencies": {
+        "koa": "^2.5.1",
+        "koa-multer": "^1.0.2",
+        "koa-route": "^3.2.0",
+        "pug": "^2.0.3",
+        "sharp": "^0.20.5",
+        "uglifycss": "^0.0.29"
+    }
+}

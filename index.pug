@@ -1,0 +1,22 @@
+html
+    head
+        meta(charset='utf-8')
+        meta(name='viewport' content='width=device-width,initial-scale=1,maximum-scale=1')
+        title transformer
+        link(rel='stylesheet' type='text/css' href='style.css')
+    body
+        h1: a(href='/') transformer
+        p アップロードされた画像に背景をつけて任意のサイズの画像で返すプログラムです。
+        form(action='/download' method='POST' name='form' enctype='multipart/form-data')
+            #resolution
+                label(for='width') 横
+                input#width(type='number' name='width' value=650 required)
+                label(for='height') 縦
+                input#height(type='number' name='height' value=350 required)
+            #background
+                input#white(type='radio' name='radio' value='white' checked)
+                label(for='white') 背景を白にする
+                input#transparent(type='radio' name='radio' value='transparent')
+                label(for='transparent') 背景を透明にする
+            #file アップロード
+                input(type='file' name='file' onchange='document.form.submit()')
