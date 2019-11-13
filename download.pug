@@ -5,10 +5,10 @@ html
         title transformer
         link(rel='stylesheet' type='text/css' href='style.css')
     body
-        h1: a(href='/') transformer
+        h1: a(href='./') transformer
         p ダウンロードが開始されます…
-        p: a(href='/output' download='transformed.png')#dl 開始されない場合はこちらをクリックしてください
-        p: a(href='/')#top 戻る
+        p: a(href='./output' download='transformed.png')#dl 開始されない場合はこちらをクリックしてください
+        p: a(href='./')#top 戻る
         script.
             document.getElementById('dl').click();
             document.getElementById('top').click();

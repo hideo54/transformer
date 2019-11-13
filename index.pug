@@ -5,9 +5,9 @@ html
         title transformer
         link(rel='stylesheet' type='text/css' href='style.css')
     body
-        h1: a(href='/') transformer
+        h1: a(href='./') transformer
         p アップロードされた画像に背景をつけて任意のサイズの画像で返すプログラムです。
-        form(action='/download' method='POST' name='form' enctype='multipart/form-data')
+        form(action='./download' method='POST' name='form' enctype='multipart/form-data')
             #resolution
                 label(for='width') 横
                 input#width(type='number' name='width' value=650 required)
