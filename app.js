@@ -19,7 +19,6 @@ const returnPNG = async (file, size, isTransparent) => {
                 alpha: alpha
             },
         })
-        .embed()
         .png()
         .toFile('output.png');
 };
