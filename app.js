@@ -9,8 +9,16 @@ const uglifycss = require('uglifycss');
 const sharp = require('sharp');
 const returnPNG = async (file, size, isTransparent) => {
     const alpha = isTransparent ? 0 : 1;
-    await sharp(file).background( { r: 255, g: 255, b: 255, alpha: alpha } )
-        .resize(size.width, size.height)
+    await sharp(file)
+        .resize({
+            width: size.width,
+            height: size.height,
+            fit: 'contain',
+            background: {
+                r: 255, g: 255, b: 255,
+                alpha: alpha
+            },
+        })
         .embed()
         .png()
         .toFile('output.png');
