@@ -2,10 +2,14 @@
     "name": "transformer",
     "version": "1.0.0",
     "main": "app.js",
+    "scripts": {
+        "test": "jest"
+    },
     "author": "hideo54",
     "license": "Apache-2.0",
     "private": true,
     "dependencies": {
+        "jest": "^24.9.0",
         "koa": "^2.11.0",
         "koa-multer": "^1.0.2",
         "koa-route": "^3.2.0",

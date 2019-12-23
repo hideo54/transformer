@@ -6,22 +6,7 @@ const fs = require('fs');
 const pug = require('pug');
 const uglifycss = require('uglifycss');
 
-const sharp = require('sharp');
-const returnPNG = async (file, size, isTransparent) => {
-    const alpha = isTransparent ? 0 : 1;
-    await sharp(file)
-        .resize({
-            width: size.width,
-            height: size.height,
-            fit: 'contain',
-            background: {
-                r: 255, g: 255, b: 255,
-                alpha: alpha
-            },
-        })
-        .png()
-        .toFile('output.png');
-};
+const returnPNGBuffer = require('./processor').returnPNGBuffer;
 
 app.use(route.post('/download', multer().single('file')));
 app.use(async (ctx, next) => {
@@ -37,7 +22,8 @@ app.use(async (ctx, next) => {
             const buf = ctx.req.file.buffer;
             const size = { width: Number(ctx.req.body.width), height: Number(ctx.req.body.height) };
             const isTransparent = ctx.req.body.radio === 'transparent' ? true : false;
-            await returnPNG(buf, size, isTransparent);
+            const newBuf = await returnPNGBuffer(buf, size, isTransparent);
+            fs.writeFileSync(__dirname + '/output.png', newBuf);
             ctx.status = 200;
             ctx.body = pug.renderFile('download.pug');
         }
