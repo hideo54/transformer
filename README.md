@@ -14,6 +14,6 @@
 
 ## How to use
 
-1. `yarn` (or npm if you like)
+1. `npm i`
 1. `pm2 start app.js` (or another if you like)
 1. Visit http://[address]:1235
