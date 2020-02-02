@@ -5,8 +5,7 @@ const multer = require('koa-multer');
 const fs = require('fs');
 const pug = require('pug');
 const uglifycss = require('uglifycss');
-
-const returnPNGBuffer = require('./processor').returnPNGBuffer;
+const { returnJPGBuffer, returnPNGBuffer } = require('./processor');
 
 app.use(route.post('/download', multer().single('file')));
 app.use(async (ctx, next) => {
@@ -21,11 +20,12 @@ app.use(async (ctx, next) => {
         if (ctx.method === 'POST') {
             const buf = ctx.req.file.buffer;
             const size = { width: Number(ctx.req.body.width), height: Number(ctx.req.body.height) };
-            const isTransparent = ctx.req.body.radio === 'transparent' ? true : false;
+            const isTransparent = ctx.req.body.background === 'transparent' ? true : false;
+            const extension = ctx.req.body.extension;
             const newBuf = await returnPNGBuffer(buf, size, isTransparent);
-            fs.writeFileSync(__dirname + '/output.png', newBuf);
+            fs.writeFileSync(__dirname + `/output.${extention}`, newBuf);
             ctx.status = 200;
-            ctx.body = pug.renderFile('download.pug');
+            ctx.body = pug.renderFile(`download-${extension}.pug`);
         }
     } else if (ctx.path === '/output') {
         ctx.status = 200;

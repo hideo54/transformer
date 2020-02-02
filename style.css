@@ -1,4 +1,4 @@
-h1, p, a, #resolution, #background, #file {
+h1, p, a, #resolution, #background, #extension, #file {
     font-family: -apple-system,BlinkMacSystemFont,"ヒラギノ角ゴ Pro W3","Hiragino Kaku Gothic Pro",sans-serif;
     text-align: center;
     text-size-adjust: 100%;
@@ -32,8 +32,12 @@ label[for='height'] {
     margin-left: 1em;
 }
 
-label[for='white'] {
+label[for='white'], label[for=jpg] {
     margin-right: 1em;
+}
+
+#background, #extension {
+    margin: 1em 0;
 }
 
 #file {

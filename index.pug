@@ -14,9 +14,14 @@ html
                 label(for='height') 縦
                 input#height(type='number' name='height' value=350 required)
             #background
-                input#white(type='radio' name='radio' value='white' checked)
+                input#white(type='radio' name='background' value='white' checked)
                 label(for='white') 背景を白にする
-                input#transparent(type='radio' name='radio' value='transparent')
+                input#transparent(type='radio' name='background' value='transparent')
                 label(for='transparent') 背景を透明にする
+            #extension
+                input#jpg(type='radio' name='extension' value='jpg' checked)
+                label(for='jpg') .jpg
+                input#png(type='radio' name='extension' value='png')
+                label(for='png') .png
             #file アップロード
                 input(type='file' name='file' onchange='document.form.submit()')
