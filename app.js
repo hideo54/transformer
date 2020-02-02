@@ -12,7 +12,7 @@ app.use(async (ctx, next) => {
     if (ctx.path === '/') {
         ctx.status = 200;
         ctx.body = pug.renderFile('index.pug');
-    } else if (ctx.path === '/download') {
+    } else if (ctx.path.split('?')[0] === '/download') {
         if (ctx.method === 'GET') {
             ctx.status = 303;
             ctx.body = '<head><meta http-equiv="refresh" content="0; URL=/" /></head>';
@@ -25,7 +25,7 @@ app.use(async (ctx, next) => {
             const newBuf = await returnBuffer(buf, size, isTransparent, extension);
             fs.writeFileSync(__dirname + `/output.${extension}`, newBuf);
             ctx.status = 200;
-            ctx.body = pug.renderFile(`download-${extension}.pug`);
+            ctx.body = pug.renderFile(`download.pug`);
         }
     } else if (ctx.path === '/output.jpg') {
         ctx.status = 200;

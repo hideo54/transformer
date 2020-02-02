@@ -25,4 +25,15 @@ html
                 label(for='png') .png
                 p.caption 背景を透明にしたい場合は .png を選択してください。
             #file アップロード
-                input(type='file' name='file' onchange='document.form.submit()')
+                input(type='file' name='file' onchange='onFileUploaded(this)')
+        script.
+            const onFileUploaded = file => {
+                const postedFilename = file.files[0].name;
+                const w = document.getElementById('width').value;
+                const h = document.getElementById('height').value;
+                const ext = document.getElementById('jpg').checked ? 'jpg' : 'png';
+                const filename = `${postedFilename.split('.')[0]}-${w}x${h}.${ext}`;
+                console.log(filename);
+                document.form.action = './download?filename=' + filename;
+                document.form.submit();
+            };
