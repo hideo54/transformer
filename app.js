@@ -23,11 +23,15 @@ app.use(async (ctx, next) => {
             const isTransparent = ctx.req.body.background === 'transparent' ? true : false;
             const extension = ctx.req.body.extension;
             const newBuf = await returnPNGBuffer(buf, size, isTransparent);
-            fs.writeFileSync(__dirname + `/output.${extention}`, newBuf);
+            fs.writeFileSync(__dirname + `/output.${extension}`, newBuf);
             ctx.status = 200;
             ctx.body = pug.renderFile(`download-${extension}.pug`);
         }
-    } else if (ctx.path === '/output') {
+    } else if (ctx.path === '/output.jpg') {
+        ctx.status = 200;
+        ctx.type = 'image/jpg';
+        ctx.body = fs.createReadStream('output.jpg');
+    } else if (ctx.path === '/output.png') {
         ctx.status = 200;
         ctx.type = 'image/png';
         ctx.body = fs.createReadStream('output.png');

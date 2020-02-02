@@ -1,6 +1,6 @@
 const sharp = require('sharp');
 
-const resizer = async (file, size, isTransparent) => (
+const resizer = (file, size, isTransparent) => (
     sharp(file)
         .resize({
             width: size.width,
