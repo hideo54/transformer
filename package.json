@@ -10,7 +10,6 @@
     "license": "Apache-2.0",
     "private": true,
     "dependencies": {
-        "jest": "^24.9.0",
         "koa": "^2.11.0",
         "koa-multer": "^1.0.2",
         "koa-route": "^3.2.0",
@@ -19,6 +18,7 @@
         "uglifycss": "^0.0.29"
     },
     "devDependencies": {
+        "jest": "^24.9.0",
         "nodemon": "^2.0.2"
     },
     "nodemonConfig": {
