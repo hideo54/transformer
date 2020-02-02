@@ -3,6 +3,7 @@
     "version": "1.0.0",
     "main": "app.js",
     "scripts": {
+        "develop": "nodemon app.js",
         "test": "jest"
     },
     "author": "hideo54",
@@ -16,5 +17,11 @@
         "pug": "^2.0.4",
         "sharp": "^0.23.2",
         "uglifycss": "^0.0.29"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.2"
+    },
+    "nodemonConfig": {
+        "ext": "js,json,pug,css"
     }
 }
