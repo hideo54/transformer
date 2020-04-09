@@ -18,7 +18,7 @@
         "uglifycss": "^0.0.29"
     },
     "devDependencies": {
-        "jest": "^25.2.7",
+        "jest": "^25.3.0",
         "nodemon": "^2.0.3"
     },
     "nodemonConfig": {
