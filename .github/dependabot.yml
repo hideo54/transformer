@@ -1,10 +1,4 @@
 version: 2
-registries:
-  npm-registry-npm-pkg-github-com-hideo54:
-    type: npm-registry
-    url: https://npm.pkg.github.com/hideo54
-    username: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_HIDEO54_USERNAME}}"
-    password: "${{secrets.NPM_REGISTRY_NPM_PKG_GITHUB_COM_HIDEO54_PASSWORD}}"
 
 updates:
 - package-ecosystem: npm
@@ -15,5 +9,3 @@ updates:
   open-pull-requests-limit: 10
   assignees:
   - hideo54
-  registries:
-  - npm-registry-npm-pkg-github-com-hideo54
