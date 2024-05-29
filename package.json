@@ -19,7 +19,7 @@
     },
     "devDependencies": {
         "jest": "^29.7.0",
-        "nodemon": "^3.1.1"
+        "nodemon": "^3.1.2"
     },
     "nodemonConfig": {
         "ext": "js,json,pug,css"
