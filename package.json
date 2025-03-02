@@ -10,7 +10,7 @@
     "license": "Apache-2.0",
     "private": true,
     "dependencies": {
-        "koa": "^2.15.4",
+        "koa": "^2.16.0",
         "koa-multer": "^1.0.2",
         "koa-route": "^4.0.1",
         "pug": "^3.0.3",
